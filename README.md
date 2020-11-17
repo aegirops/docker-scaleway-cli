@@ -9,7 +9,7 @@ Docker with scaleway cli and kubectl for CI/CD purpose
 This image is based on debian buster slim and contains:
 
 - Scaleway cli
-- Python 3.5
+- Python 3.7
 - Kubectl
 - Curl
 - Git
