@@ -20,7 +20,7 @@ jobs:
           command: docker run -it scaleway-cli "which" "kubectl"
       - run:
           name: Check scaleway
-          command: docker run -it scaleway-cli "scw" "--version"
+          command: docker run -it scaleway-cli "scw" "version"
       - run:
           name: Check all versions
           command: |
