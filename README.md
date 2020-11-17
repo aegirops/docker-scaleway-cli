@@ -20,7 +20,7 @@ This image is based on debian buster slim and contains:
 - mariadb-client-10.3
 - nslookup
 
-This image is intended to be used in a gke CI/CD environment.
+This image is intended to be used in a scw CI/CD environment.
 
 ## DockerHub
 
