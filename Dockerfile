@@ -22,7 +22,8 @@ RUN apt-get install -y \
     gettext-base \
     jq \
     docker-ce-cli \
-    net-tools
+    net-tools \ 
+    python3
 
 # Install postgresql-client
 RUN wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
