@@ -23,7 +23,8 @@ RUN apt-get install -y \
     jq \
     docker-ce-cli \
     net-tools \ 
-    python3
+    python3 \
+    python3-pip
 
 # Install postgresql-client
 RUN wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
@@ -48,6 +49,9 @@ RUN wget --quiet -O- https://k14s.io/install.sh | bash
 # Install scaleway cli
 RUN sudo curl -o /usr/local/bin/scw -L "https://github.com/scaleway/scaleway-cli/releases/download/v2.2.2/scw-2.2.2-linux-x86_64"
 RUN sudo chmod +x /usr/local/bin/scw
+
+# Install s3cmd
+RUN pip3 install s3cmd
 
 # Cleanup
 RUN apt-get clean -y
