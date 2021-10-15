@@ -16,7 +16,7 @@ This image is based on debian buster slim and contains:
 - Git
 - Docker cli
 - Jq
-- ytt
+- ytt 0.30.0
 - postgresql-client-11
 - mariadb-client-10.3
 - nslookup
