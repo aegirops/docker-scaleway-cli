@@ -24,7 +24,8 @@ RUN apt-get install -y \
     docker-ce-cli \
     net-tools \ 
     python3 \
-    python3-pip
+    python3-pip \
+    python3-magic
 
 # Install postgresql-client
 RUN wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
