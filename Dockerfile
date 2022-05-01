@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
 # Install curl and gnupg2
 RUN apt-get update -y
@@ -9,7 +9,7 @@ RUN apt-get install -y \
     dnsutils
 
 # Add docker apt repository
-RUN echo "deb [arch=amd64] https://download.docker.com/linux/debian buster stable" >> /etc/apt/sources.list \
+RUN echo "deb [arch=amd64] https://download.docker.com/linux/debian bullseye stable" >> /etc/apt/sources.list \
     && curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 
 # Install dependencies
@@ -28,7 +28,7 @@ RUN apt-get install -y \
 
 # Install postgresql-client
 RUN wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
-RUN sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+RUN sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ bullseye-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
 RUN sudo apt-get update -y
 RUN sudo apt-get install postgresql-client-11 -y
 
@@ -44,10 +44,11 @@ RUN curl -o /usr/local/bin/kubectl -LO https://storage.googleapis.com/kubernetes
     && chmod +x /usr/local/bin/kubectl
 
 # Install ytt yaml templating tool
-RUN wget --quiet -O- https://k14s.io/install.sh | bash
+RUN curl -o /usr/local/bin/ytt -LO https://github.com/vmware-tanzu/carvel-ytt/releases/download/v0.40.1/ytt-linux-amd64 \
+    && chmod +x /usr/local/bin/ytt
 
 # Install scaleway cli
-RUN sudo curl -o /usr/local/bin/scw -L "https://github.com/scaleway/scaleway-cli/releases/download/v2.2.2/scw-2.2.2-linux-x86_64"
+RUN sudo curl -o /usr/local/bin/scw -L "https://github.com/scaleway/scaleway-cli/releases/download/v2.5.1/scaleway-cli_2.5.1_linux_amd64"
 RUN sudo chmod +x /usr/local/bin/scw
 
 # Install s3cmd
