@@ -31,7 +31,7 @@ RUN apt-get install -y \
 RUN wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
 RUN sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ bullseye-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
 RUN sudo apt-get update -y
-RUN sudo apt-get install postgresql-client-11 -y
+RUN sudo apt-get install postgresql-client-15 -y
 
 # Install mariadb-client
 RUN sudo apt-get install mariadb-client -y
@@ -45,11 +45,11 @@ RUN curl -o /usr/local/bin/kubectl -LO https://storage.googleapis.com/kubernetes
     && chmod +x /usr/local/bin/kubectl
 
 # Install ytt yaml templating tool
-RUN curl -o /usr/local/bin/ytt -LO https://github.com/vmware-tanzu/carvel-ytt/releases/download/v0.40.1/ytt-linux-amd64 \
+RUN curl -o /usr/local/bin/ytt -LO https://github.com/vmware-tanzu/carvel-ytt/releases/download/v0.45.3/ytt-linux-amd64 \
     && chmod +x /usr/local/bin/ytt
 
 # Install scaleway cli
-RUN sudo curl -o /usr/local/bin/scw -L "https://github.com/scaleway/scaleway-cli/releases/download/v2.5.1/scaleway-cli_2.5.1_linux_amd64"
+RUN sudo curl -o /usr/local/bin/scw -L "https://github.com/scaleway/scaleway-cli/releases/download/v2.16.1/scaleway-cli_2.16.1_linux_amd64"
 RUN sudo chmod +x /usr/local/bin/scw
 
 # Install s3cmd

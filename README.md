@@ -8,7 +8,7 @@ Docker with scaleway cli and kubectl for CI/CD purpose
 
 This image is based on debian bullseye-slim and contains:
 
-- Scaleway cli v2.5.1
+- Scaleway cli v2.16.1
 - s3cmd (python package to interact with scaleway s3 buckets)
 - Python 3.9
 - Kubectl
@@ -17,7 +17,7 @@ This image is based on debian bullseye-slim and contains:
 - Docker cli
 - Jq
 - ytt 0.40
-- postgresql-client-11
+- postgresql-client-15
 - mariadb-client-15.1
 - nslookup
 
